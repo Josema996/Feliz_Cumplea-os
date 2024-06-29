@@ -2,122 +2,163 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 body {
-	font-family: 'Indie Flower', cursive !important;
-  background: #FDE3A7;
-	margin: 0px;
-	padding: 0px;
+    font-family: 'Indie Flower', cursive;
+    background: #FDE3A7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 ::selection {
-	background: transparent;
+    background: transparent;
 }
 
 h4 {
-	font-size: 26px;
-	line-height: 1px;
-	font-family: 'Amatic SC', cursive !important;
+    font-size: 26px;
+    line-height: 1px;
+    font-family: 'Amatic SC', cursive !important;
 }
 
-.color1{color:#1BBC9B}
-.color2{color:#C0392B}
-
+.color1 { color: #1BBC9B }
+.color2 { color: #C0392B }
 
 .card {
-	color: #013243;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 300px;
-	height: 400px;
-	background: #e0e1dc;
-	transform-style: preserve-3d;
-	transform: translate(-50%,-50%) perspective(2000px);
-	box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
-	transition: 1s;
+    color: #013243;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 400px;
+    background: #e0e1dc;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(2000px);
+    box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5), 20px 0 60px rgba(0, 0, 0, .5);
+    transition: 1s;
 }
 
 .card:hover {
-	transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
-	box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+    transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 10px 100px rgba(0, 0, 0, .5);
 }
 
 .card:before {
-	content:'';
-	position: absolute;
-	top: -5px;
-	left: 0;
-	width: 100%;
-	height: 5px;
-	background: #BAC1BA;
-	transform-origin: bottom;
-	transform: skewX(-45deg);
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #BAC1BA;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
 }
 
 .card:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: -5px;
-	width: 5px;
-	height: 100%;
-	background: #92A29C;
-	transform-origin: left;
-	transform: skewY(-45deg);
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: #92A29C;
+    transform-origin: left;
+    transform: skewY(-45deg);
 }
 
 .card .imgBox {
-	width: 100%;
-	height: 100%;
-	position: relative;
-	transform-origin: left;
-	transition: .7s;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: .7s;
 }
 
 .card .bark {
-	position: absolute;
-	background: #e0e1dc;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	transition: .7s;
+    position: absolute;
+    background: #e0e1dc;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .7s;
 }
 
 .card .imgBox img {
-	min-width: 250px;
-	max-height: 400px;
+    min-width: 250px;
+    max-height: 400px;
 }
 
 .card:hover .imgBox {
-	transform: rotateY(-135deg);
+    transform: rotateY(-135deg);
 }
 
 .card:hover .bark {
-	opacity: 1;
-	transition: .6s;
-  box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+    opacity: 1;
+    transition: .6s;
+    box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
 }
 
 .card .details {
-	position: absolute;
-	top: 0;
-	left: 0;
-	box-sizing: border-box;
-	padding: 0 0 0 10px;
-	z-index: -1;
-	margin-top: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 10px;
+    z-index: -1;
+    margin-top: 50px;
+    transform: rotate(-10deg); /* Alinea el texto con la diagonal de la tarjeta */
+    width: 100%; /* Asegura que el contenido no sobrepase el ancho de la tarjeta */
+    height: 70%; /* Ajusta la altura para mantener todo dentro de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el espacio entre el texto y los botones */
 }
 
-.card .details p {
-	font-size: 15px;
-	line-height: 5px;
-	transform: rotate(-10deg);
-	padding: 0 0 0 20px;
+.card .details h4, .card .details p {
+    transform: rotate(10deg); /* Contrarresta la rotación para que el texto aparezca normal */
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center; /* Asegura que el texto esté centrado */
 }
 
-.card .details h4 {
-	text-align: center;
+.card .buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 }
 
-.text-right {
-	text-align: right;
+.card .buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1BBC9B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card .buttons button:hover {
+    background-color: #C0392B;
+}
+
+#videoModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1); /* Asegúrate de que el scale esté en 1 para visibilidad completa */
+    width: 640px;  /* Ancho del video */
+    height: 480px; /* Altura del video */
+    z-index: 1500; /* Aumenta el z-index si es necesario */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+#videoModal.show {
+    display: block;
 }
